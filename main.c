@@ -1,22 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
-struct student {
-    int ID; //학번
-    char name[20];
-    float grade;
+struct point{
+    int x;
+    int y;
 };
 
 int main (void) 
 {
-	struct student s1 = {2513020, "Namhee", 4.3};
+	struct point p1, p2;
+    int xdiff, ydiff;
+    double dist;
 
-	s1.ID =  123456;
-	strcpy(s1.name, "Namhee2"); //문자열은 = 대신 strcpy() 함수를 사용해야 한다.
-	s1.grade = 4.2;
-	
-	printf("ID: %i, name: %s, grade: %f\n", s1.ID, s1.name, s1.grade);
-	
-	return 0;
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p1.x, &p1.y); 
+
+    printf("input p2 coordinate (x y) : ");
+    scanf("%d %d", &p2.x, &p2.y);
+
+    xdiff = (p1.x - p2.x)*(p1.x - p2.x);
+    ydiff = (p1.y - p2.y)*(p1.y - p2.y);
+    
+    dist = sqrt((double)(xdiff + ydiff));
+
+    printf("distance : %lf\n", dist);
+
+    return 0;
 }
